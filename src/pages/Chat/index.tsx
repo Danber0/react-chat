@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import "./Chat.scss";
-const socket = io("http://localhost:3001");
+const socket = io("https://danber-chat.herokuapp.com/");
 
 type MessageState = {
   id: string;
