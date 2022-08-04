@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+
+import Chat from "./pages/Chat";
+import Home from "./pages/Home";
+
+import "./App.scss";
 
 function App() {
+  const [userName, setUserName] = React.useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route
+          path="chat"
+          element={
+            userName.trim() ? (
+              <Chat userName={userName} />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
+        />
+        <Route index element={<Home setUserName={setUserName} />} />
+      </Routes>
     </div>
   );
 }
