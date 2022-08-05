@@ -18,11 +18,24 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  socket.on("send_message", (data) => {
+  socket.on("send_message", ({ id, name, message, date }) => {
     io.emit("send_message", {
-      id: socket.id,
-      name: data.name,
-      message: data.message,
+      id,
+      name,
+      message,
+      date,
+    });
+  });
+
+  socket.on("all_users", (id) => {
+    io.emit("all_users", {
+      count: io.of("/").sockets.size,
+    });
+  });
+
+  socket.on("disconnect", () => {
+    io.emit("all_users", {
+      count: io.of("/").sockets.size,
     });
   });
 });

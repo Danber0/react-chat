@@ -2,7 +2,9 @@ $text-color: #fdfdfd;
 $background-color: #9e9e9e;
 
 .name-block {
+  position: relative;
   input {
+    width: 240px;
     font-size: 25px;
     font-weight: 700;
     outline: none;
@@ -12,6 +14,20 @@ $background-color: #9e9e9e;
     border-radius: 10px;
     &::placeholder {
       color: darken($text-color, 20%);
+    }
+  }
+
+  button {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    bottom: 2px;
+    background: none;
+    border-radius: 50%;
+    padding: 10px;
+    border: none;
+    svg {
+      color: $text-color;
     }
   }
 }
