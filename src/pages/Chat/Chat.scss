@@ -1,6 +1,7 @@
 $text-color: #fdfdfd;
 
 .chat-block {
+  margin: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,6 +18,11 @@ $text-color: #fdfdfd;
   }
 
   .chat-title {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    opacity: 0.9;
+    background-color: #454545;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,17 +63,24 @@ $text-color: #fdfdfd;
       }
 
       li {
+        width: 50%;
         position: relative;
-        width: 40%;
-        min-width: 350px;
         padding: 10px 20px 20px 20px;
         margin: 20px 0;
         border-radius: 30px;
         color: $text-color;
         font-size: 19px;
-        word-break: break-all;
+        word-wrap: break-word;
         line-height: 130%;
         font-weight: 700;
+
+        @media (max-width: 700px) {
+          width: 65%;
+          font-size: 16px;
+        }
+
+        @media (max-width: 500px) {
+        }
 
         .time-block {
           position: absolute;
@@ -97,7 +110,6 @@ $text-color: #fdfdfd;
     textarea {
       height: 66px;
       border-radius: 10px;
-      margin-right: 10px;
       padding: 10px;
       max-height: 250px;
       width: 100%;
