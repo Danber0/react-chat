@@ -5,7 +5,7 @@ import { toLocaleDate } from "../../config/date";
 
 import "./Chat.scss";
 
-const socket = io("https://danber-chat.herokuapp.com/");
+const socket = io("http://localhost:3001/");
 
 type MessageState = {
   id: string;
