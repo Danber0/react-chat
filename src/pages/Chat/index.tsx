@@ -5,7 +5,7 @@ import { toLocaleDate } from "../../config/date";
 
 import "./Chat.scss";
 
-const socket = io("http://localhost:3001/");
+const socket = io("https://web-production-efd2.up.railway.app/");
 
 type MessageState = {
   id: string;
